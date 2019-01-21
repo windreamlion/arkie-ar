@@ -39,7 +39,6 @@ module.exports = {
         },
       ],
     }),
-
     // off
     // new ForkTsCheckerWebpackPlugin({
     //   checkSyntacticErrors: true,

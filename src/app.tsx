@@ -1,4 +1,5 @@
 import 'antd/dist/antd.css'
+import 'three'
 
 import { Provider } from 'mobx-react'
 import * as React from 'react'

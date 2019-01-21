@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = merge(common, {
   mode: 'development',
   context: __dirname,
-  
+
   devtool: 'cheap-module-source-map',
 
   devServer: {
@@ -15,15 +15,18 @@ module.exports = merge(common, {
     host: '0.0.0.0',
     port: 8090,
     compress: true,
-    contentBase: 'dist'
+    contentBase: 'dist',
   },
 
   plugins: [
     new HtmlWebpackPlugin({
       title: 'ARKie AR',
-      inject: true
+      inject: true,
+      meta: {
+        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no',
+      },
     }),
 
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 })
