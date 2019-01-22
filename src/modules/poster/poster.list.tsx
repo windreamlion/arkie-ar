@@ -24,11 +24,11 @@ export class PosterList extends React.Component<PosterListProps> {
   private renderItems() {
     const { list = [] } = this.props
     return (
-      <Grid container spacing={24}>
+      <Grid container spacing={24} justify="center">
         {list.map((item) => {
           const { url, posterId, status } = item
           return (
-            <Grid item key={posterId} xs={12} md={6} lg={2} style={{ position: 'relative' }}>
+            <Grid item key={posterId} xs={10} md={6} lg={2} style={{ position: 'relative' }}>
               <Grid container style={{ position: 'absolute', top: 0, left: 0, height: 50 }} justify="flex-end">
                 {status === PosterStatus.CREATED && (
                   <IconButton aria-label="Delete" onClick={() => this.handleClick(posterId)}>

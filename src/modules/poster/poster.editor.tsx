@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core'
+import { Drawer, Grid } from '@material-ui/core'
 import { inject, observer } from 'mobx-react'
 import * as React from 'react'
 
@@ -8,25 +8,34 @@ import { PosterList } from './poster.list'
 
 interface PosterEditorProps {
   selected?: Scenario
+  editing?: boolean
+  toggleEditor?: (state: boolean) => void
 }
 
 @inject((store: any) => ({
   selected: store.scenarios.selected,
+  editing: store.process.editing,
+  toggleEditor: store.process.toggleEditState,
 }))
 @observer
 export class PosterEditor extends React.Component<PosterEditorProps> {
+  private handleClose = () => {
+    const { toggleEditor } = this.props
+    toggleEditor && toggleEditor(false)
+  }
+
   render() {
-    const { selected } = this.props
+    const { selected, editing = false } = this.props
     if (!selected) return null
     return (
-      <Grid container wrap="nowrap">
-        <Grid item container wrap="nowrap" style={{ minWidth: 320, maxWidth: 400 }}>
+      <>
+        <Drawer anchor="bottom" open={editing} onClose={this.handleClose}>
           <ScenarioInputs />
-        </Grid>
-        <Grid item container wrap="nowrap" style={{ padding: '20px 0' }}>
+        </Drawer>
+        <Grid container wrap="nowrap">
           <PosterList />
         </Grid>
-      </Grid>
+      </>
     )
   }
 }
