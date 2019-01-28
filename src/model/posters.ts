@@ -47,6 +47,11 @@ class Posters {
     }
   }
 
+  @action.bound
+  toggleSelectedById(posterId: string, selected = false) {
+    this.updateList(posterId, { selected })
+  }
+
   @computed
   get list() {
     return this._list
@@ -62,6 +67,7 @@ export interface Poster {
   url?: string
   status?: PosterStatus
   size?: { width: number; height: number; unit?: string }
+  selected?: boolean
   [key: string]: any
 }
 

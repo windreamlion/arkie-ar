@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react'
 import * as React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { BoxGeometry, Color, Mesh, MeshBasicMaterial, Scene, VertexColors, WebGLRenderer } from 'three'
@@ -5,6 +6,7 @@ import { ARDebug, ARPerspectiveCamera, ARUtils, ARView } from 'three.ar.js'
 
 import { VRControls } from './vrControls'
 
+@observer
 class ThreejsAR extends React.Component {
   private vrDisplay?: VRDisplay
 

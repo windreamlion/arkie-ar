@@ -1,6 +1,6 @@
 import { AppBar, Fab, IconButton, Tab, Toolbar } from '@material-ui/core'
-import AddIcon from '@material-ui/icons/Add'
-import MenuIcon from '@material-ui/icons/Menu'
+import AddToPhotosRounded from '@material-ui/icons/AddToPhotosRounded'
+import CameraFront from '@material-ui/icons/CameraFront'
 import { inject, observer } from 'mobx-react'
 import * as React from 'react'
 
@@ -24,6 +24,10 @@ export class Navigation extends React.Component<navigationProps> {
     toggleEditor && toggleEditor(true)
   }
 
+  private gotoPreview() {
+    window.location.href = '/preview'
+  }
+
   renderInputStep() {
     const { scenario } = this.props
     const disabled = scenario ? false : true
@@ -33,8 +37,8 @@ export class Navigation extends React.Component<navigationProps> {
     return (
       <AppBar position="fixed" color="primary" style={{ top: 'auto', bottom: 0 }}>
         <Toolbar style={{ alignItems: 'center', justifyContent: 'flex-end' }}>
-          <IconButton color="inherit" aria-label="Open drawer" onClick={this.openEditor}>
-            <MenuIcon />
+          <IconButton color="inherit" aria-label="Open drawer" onClick={this.gotoPreview}>
+            <CameraFront />
           </IconButton>
           <Fab
             color="secondary"
@@ -42,7 +46,7 @@ export class Navigation extends React.Component<navigationProps> {
             style={{ position: 'absolute', zIndex: 1, top: -30, left: 0, right: 0, margin: '0 auto' }}
             onClick={this.openEditor}
           >
-            <AddIcon />
+            <AddToPhotosRounded />
           </Fab>
         </Toolbar>
       </AppBar>

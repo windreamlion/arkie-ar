@@ -1,9 +1,11 @@
 import { CssBaseline, Grid } from '@material-ui/core'
-import React = require('react')
+import * as React from 'react'
 import styled from 'styled-components'
 
 import { Navigation } from '../steps/navigation'
 import { StepContainer } from '../steps/steps.container'
+
+// import { StepContainer } from '../steps/steps.container'
 
 const Creator = () => (
   <Wrapper container direction="column" wrap="nowrap">

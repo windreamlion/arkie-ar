@@ -19,7 +19,13 @@ export class StepContainer extends React.Component<StepContainerProps> {
   render() {
     const { step = 1 } = this.props
     return (
-      <SwipeableViews axis={'x'} index={step - 1} onChangeIndex={this.handleChangeIndex}>
+      <SwipeableViews
+        axis={'x'}
+        index={step - 1}
+        disabled
+        onChangeIndex={this.handleChangeIndex}
+        containerStyle={{ height: '100%', WebkitOverflowScrolling: 'touch' }}
+      >
         <ScenarioList />
         <PosterEditor />
         <ItemContainer>Item Three</ItemContainer>

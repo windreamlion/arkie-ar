@@ -50,7 +50,7 @@ export class ScenarioInputs extends React.Component<ScenarioInputsProps> {
               <TextField
                 key={input.id}
                 label={input.label}
-                defaultValue={input.placeholder || input.text || ''}
+                // defaultValue={input.placeholder || input.text || ''}
                 variant="outlined"
                 margin="normal"
                 value={input.text}
@@ -102,7 +102,7 @@ export class ScenarioInputs extends React.Component<ScenarioInputsProps> {
     return (
       <Grid container wrap="nowrap" direction="column" style={{ padding: 20 }}>
         {this.renderTextInputs()}
-        {this.renderImageInputs()}
+        {false && this.renderImageInputs()}
         {false && this.renderSearch()}
         {this.renderCreateButton()}
       </Grid>
