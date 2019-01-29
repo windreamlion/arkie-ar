@@ -1,6 +1,7 @@
 declare module 'three.ar.js' {
   const ARUtils: {
     getARDisplay: () => Promise<VRDisplay | null>
+    placeObjectAtHit: (object: Object3D, hit: VRHit, easing = 1, applyOrientation = false) => void
   }
 
   class ARDebug {
@@ -20,4 +21,7 @@ declare module 'three.ar.js' {
   class ARAnchorManager {
     constructor(vrDisplay: VRDisplay)
   }
+}
+interface VRDisplay {
+  hitTest(x: number, y: number): VRHit
 }

@@ -9,6 +9,7 @@ interface navigationProps {
   onStepChange?: (step?: number) => void
   scenario?: any
   toggleEditor?: (state: boolean) => void
+  routing?: any
 }
 
 @inject((store: any) => ({
@@ -16,6 +17,7 @@ interface navigationProps {
   scenario: store.scenarios.selected,
   onStepChange: store.process.changeStep,
   toggleEditor: store.process.toggleEditState,
+  routing: store.routing,
 }))
 @observer
 export class Navigation extends React.Component<navigationProps> {
@@ -24,8 +26,12 @@ export class Navigation extends React.Component<navigationProps> {
     toggleEditor && toggleEditor(true)
   }
 
-  private gotoPreview() {
-    window.location.href = '/preview'
+  private gotoPreview = () => {
+    const { routing } = this.props
+    if (routing) {
+      const { push } = routing
+      push && push('/preview')
+    }
   }
 
   renderInputStep() {
