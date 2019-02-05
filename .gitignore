@@ -35,6 +35,7 @@ jspm_packages/
 
 # Source
 src/
+dist
 lib
 
 # TypeScript v1 declaration files
